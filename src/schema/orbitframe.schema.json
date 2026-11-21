@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://orbitframe.local/schema/orbitframe.schema.json",
+  "title": "OrbitFrame GIF export configuration",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "width": { "type": "integer", "minimum": 16, "maximum": 2048, "default": 512 },
+    "height": { "type": "integer", "minimum": 16, "maximum": 2048, "default": 512 },
+    "fps": { "type": "integer", "minimum": 1, "maximum": 60, "default": 15 },
+    "duration": { "type": "number", "exclusiveMinimum": 0, "maximum": 120, "default": 4 },
+    "frameCount": { "type": "integer", "minimum": 1, "maximum": 1800 },
+    "loop": { "type": "boolean", "default": true },
+    "repeat": { "type": "integer", "minimum": -1, "default": 0 },
+    "background": { "type": "string", "default": "#eceeef" },
+    "maxColors": { "type": "integer", "minimum": 2, "maximum": 256, "default": 256 },
+    "dithering": { "type": "boolean", "default": false },
+    "motion": {
+      "type": "object",
+      "required": ["type"],
+      "properties": {
+        "type": { "enum": ["model-turntable", "camera-orbit", "camera-tilt-orbit", "ping-pong", "multi-axis-sway", "spiral-orbit"] },
+        "direction": { "enum": [1, -1] },
+        "turns": { "type": "integer", "minimum": 1 },
+        "angle": { "type": "number" },
+        "amplitude": { "type": "number" },
+        "tilt": { "type": "number" },
+        "height": { "type": "number" }
+      },
+      "additionalProperties": false
+    }
+  }
+}

@@ -1,0 +1,13 @@
+# 统一换行符，避免 Windows/Linux 协作时产生整文件 diff
+* text=auto eol=lf
+
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.webp binary
+*.glb binary
+*.gltf binary
+*.usdz binary
+*.wasm binary
+*.zip binary
